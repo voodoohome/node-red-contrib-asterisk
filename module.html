@@ -1,0 +1,19 @@
+
+
+
+<script type="text/javascript">
+    RED.nodes.registerType('asterisk-in',{
+        category: 'input',
+        color: '#00cc00',
+        defaults: {
+            name:      {value:""},
+            controller:  {value:"", type:"asterisk-controller"}
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "knx.png",
+        label: function() {
+            return("asterisk");
+        }
+    });
+</script>
