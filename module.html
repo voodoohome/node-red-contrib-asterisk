@@ -2,11 +2,11 @@
 
 <script type="text/x-red" data-template-name="asterisk-controller">
     <div class="form-row">
-        <label for="node-config-input-host"><i class="icon-bookmark"></i> eibd Host</label>
+        <label for="node-config-input-host"><i class="icon-bookmark"></i> AGI Host</label>
         <input type="text" id="node-config-input-host">
     </div>
     <div class="form-row">
-        <label for="node-config-input-port"><i class="icon-bookmark"></i> eibd Port</label>
+        <label for="node-config-input-port"><i class="icon-bookmark"></i> AGI Port</label>
         <input type="text" id="node-config-input-port">
     </div>
 </script>
@@ -28,10 +28,10 @@
                 category: 'config',
                 defaults: {
                         host: {value:"localhost",required:true},
-                        port: {value:6720,      required:true,  validate:RED.validators.number()}
+                        port: {value:14000,      required:true,  validate:RED.validators.number()}
                 },
                 label: function() {
-                        return "eibd@"+this.host+":"+this.port;
+                        return "agi://"+this.host+":"+this.port;
                 }
         });
 </script>

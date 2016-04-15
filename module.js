@@ -6,7 +6,8 @@
 module.exports = function(RED) {
 
     function AsteriskControllerNode(config) {
-        RED.nodes.createNode(this,config);
+      console.log("AsteriskControllerNode",config);
+      RED.nodes.createNode(this,config);
 
     }
     RED.nodes.registerType("asterisk-controller",AsteriskControllerNode);
