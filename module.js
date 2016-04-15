@@ -91,7 +91,7 @@ module.exports = function(RED) {
 
     ctrl.registerHandler(config.code,function(handler) {
       console.log("getting called");
-      node.send({"topic": 'incoming', "payload": {"caller": ""}});
+      node.send({"topic": 'incoming', "payload": {"caller": handler.agi_callerid}});
     });
 
   }
