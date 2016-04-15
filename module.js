@@ -12,6 +12,10 @@ module.exports = function(RED) {
     console.log("AsteriskControllerNode", config);
     RED.nodes.createNode(this, config);
 
+    this.registerHandler = function(code, callback) {
+      console.log(code,callback);
+    };
+
     console.log("start service");
 
     agi = aio.agi(14000); // port and host
@@ -29,6 +33,39 @@ module.exports = function(RED) {
       console.log('close');
     });
 
+    agi.on('connection', function(agiHandler) {
+      console.log('connection', agiHandler);
+      agiHandler.on('hangup', function() {
+        // hangup handler
+      });
+
+      agiHandler.on('error', function(err) {
+        throw err;
+      });
+
+      agiHandler.on('close', function() {
+        // closing handler
+      });
+
+      // answer the channel
+      agiHandler.command('Answer', function(code, result, data) {
+
+        agiHandler.command('GET DATA "beep"', function(code, result, data) {
+          console.log(code, result, data);
+          if (code == 200 && result) {
+            agiHandler.command('SAY DIGITS "' + result + '" "0"', function(code, result, data) {
+              console.log(code, result, data);
+              agiHandler.command('HangUp', function() {
+                // hangup the channel, this will raise hangup and close event
+              });
+            });
+          } else {
+            console.log("Damn!");
+          }
+        });
+      });
+    });
+
     console.log("service started");
 
 
@@ -39,11 +76,18 @@ module.exports = function(RED) {
   function AsteriskInputNode(config) {
     console.log("AsteriskInputNode", config);
     RED.nodes.createNode(this, config);
+    var node = this;
+    var ctrl = RED.nodes.getNode(config.controller);
 
     this.on("input", function(msg) {
       if (msg != null) {
         console.log(msg);
       };
+    });
+
+    ctrl.registerHandler(config.code,function(handler) {
+      console.log("getting called");
+      node.send({"topic": 'incoming', "payload": {"caller": ""}});
     });
 
   }

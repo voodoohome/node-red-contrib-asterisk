@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/voodoohome/node-red-contrib-asterisk.git"
   },
+  "dependencies": {
+    "asterisk.io": "0.1.1"
+  },
   "keywords": [
     "asterisk",
     "node-red"
