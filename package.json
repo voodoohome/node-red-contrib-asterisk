@@ -1,0 +1,23 @@
+{
+  "name": "node-red-contrib-asterisk",
+  "version": "1.0.0",
+  "description": "Node-RED contribution to work with the asterisk server",
+  "main": "module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voodoohome/node-red-contrib-asterisk.git"
+  },
+  "keywords": [
+    "asterisk",
+    "node-red"
+  ],
+  "author": "Stefan Koch",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/voodoohome/node-red-contrib-asterisk/issues"
+  },
+  "homepage": "https://github.com/voodoohome/node-red-contrib-asterisk#readme"
+}
