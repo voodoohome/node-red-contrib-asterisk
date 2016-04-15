@@ -14,6 +14,11 @@
     "asterisk",
     "node-red"
   ],
+  "node-red" : {
+     "nodes": {
+        "sample": "module.js"
+     }
+  },
   "author": "Stefan Koch",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
