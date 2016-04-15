@@ -5,25 +5,26 @@
 
 module.exports = function(RED) {
 
-    function AsteriskControllerNode(config) {
-      console.log("AsteriskControllerNode",config);
-      RED.nodes.createNode(this,config);
+  function AsteriskControllerNode(config) {
+    console.log("AsteriskControllerNode", config);
+    RED.nodes.createNode(this, config);
 
-    }
-    RED.nodes.registerType("asterisk-controller",AsteriskControllerNode);
+  }
+  RED.nodes.registerType("asterisk-controller", AsteriskControllerNode);
 
 
-    function AsteriskInputNode(config) {
-        RED.nodes.createNode(this,config);
+  function AsteriskInputNode(config) {
+    console.log("AsteriskInputNode", config);
+    RED.nodes.createNode(this, config);
 
-        this.on("input", function(msg) {
-            if (msg != null) {
-              console.log(msg);
-            };
-        });
+    this.on("input", function(msg) {
+      if (msg != null) {
+        console.log(msg);
+      };
+    });
 
-    }
-    RED.nodes.registerType("asterisk-in",AsteriskInputNode);
+  }
+  RED.nodes.registerType("asterisk-in", AsteriskInputNode);
 
 
 
