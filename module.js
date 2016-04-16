@@ -12,12 +12,12 @@ module.exports = function(RED) {
     console.log("AsteriskControllerNode", config);
     RED.nodes.createNode(this, config);
 
-    var callbacks = new Map();
+    var callbacks = {};
 
     this.registerHandler = function(code, callback) {
       console.log(code,callback);
 
-      callbacks.set(code,callback);
+      callbacks[code] = callback;
     };
 
     console.log("start service");
@@ -56,8 +56,8 @@ module.exports = function(RED) {
 
         agiHandler.command('GET DATA "beep"', function(code, result, data) {
           console.log(code, result, data);
-          if (code == 200 && result && callbacks.has(result)) {
-            callbacks.get(result)(result,agiHandler);
+          if (code == 200 && result && result in callbacks) {
+            callbacks[result](result,agiHandler);
             agiHandler.command('SAY DIGITS "' + result + '" "0"', function(code, result, data) {
               console.log(code, result, data);
               agiHandler.command('HangUp', function() {
