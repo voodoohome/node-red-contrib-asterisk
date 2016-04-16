@@ -65,10 +65,17 @@ module.exports = function(RED) {
               });
             });
           } else {
-            console.log("Damn!");
+            console.log("No match found");
+            agiHandler.command('HangUp', function() {
+              // hangup the channel, this will raise hangup and close event
+            });
           }
         });
       });
+    });
+
+    this.on('close', function() {
+      agi.close();
     });
 
     console.log("service started");
