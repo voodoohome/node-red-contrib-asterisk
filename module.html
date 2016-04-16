@@ -35,8 +35,8 @@
     category: 'config',
     defaults: {
       host: {
-        value: "localhost",
-        required: true
+        value: "0.0.0.0",
+        required: false
       },
       port: {
         value: 14000,
@@ -54,7 +54,7 @@
 <script type="text/javascript">
   RED.nodes.registerType('asterisk-in', {
     category: 'input',
-    color: '#00cc00',
+    color: 'rgb(236,119,47)',
     defaults: {
       name: {
         value: ""
