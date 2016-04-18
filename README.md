@@ -22,4 +22,4 @@ to make the plugin work you need to make sure you add an AGI trigger in the Aste
 You need to make sure the address (in my case 192.168.2.42) matches with the node-red server address or hostname and the port fits to what you configure in the node controller configuration.
 
 ## Usage
-Coming soon ..
+Coming soon ...
