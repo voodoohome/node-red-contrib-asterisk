@@ -1,4 +1,4 @@
-# node-red-contrib-asterisk
+# node-red-contrib-asterisk [![Build Status](https://travis-ci.org/voodoohome/node-red-contrib-asterisk.svg?branch=master)](https://travis-ci.org/voodoohome/node-red-contrib-asterisk)
 This project is my first attempt to write a node-red module. The main purpose of this module is to open an AGI socket for so you can create an Asterisk extension which points to the AGI process.
 
 ## Installation
